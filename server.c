@@ -6,43 +6,38 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:15:01 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/08/27 17:25:01 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:37:22 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
 
-char msg[8];
 
-void	handler(int sig)
+void	sig_handler(int signum)
 {	
+	static int c;
+	static int bit;
 	
-	int	i;
-	
-	i = 0;
-	while (i < 8)
+	if (signum == SIGUSR1)
+		c = c | (1 << bit);
+	bit++;
+	if (bit == 8)
 	{
-		if (sig == SIGUSR1)
-			msg[i] = '1';
-		else if (sig == SIGUSR2)
-			msg[i] = '0';
-		i++;	
+		bit = 0;
+		write(1, &c, 1);
+		c = 0;
 	}
-	printf("\n%s\n", msg);
-}
+}	
 
 int	main(void)
 {	
-	struct sigaction sig_handler;
-	sig_handler.sa_handler = &handler;
-	sigaction(SIGUSR1, &sig_handler, NULL);
-	sigaction(SIGUSR2, &sig_handler, NULL);
-	
-	printf("%d\n", getpid());
+	printf("\n%d\n", getpid());
 	while (1)
 	{
-		usleep(500);
+		signal(SIGUSR1, sig_handler);
+		signal(SIGUSR2, sig_handler);
+		pause();
 	}
 	return (0);
 	
