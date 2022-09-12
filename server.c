@@ -6,13 +6,11 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:15:01 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/08/31 14:37:22 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:44:13 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <signal.h>
-#include <unistd.h>
 
+#include "./Libft/libft.h"
 
 void	sig_handler(int signum)
 {	
@@ -32,7 +30,7 @@ void	sig_handler(int signum)
 
 int	main(void)
 {	
-	printf("\n%d\n", getpid());
+	ft_printf("\n%d\n", getpid());
 	while (1)
 	{
 		signal(SIGUSR1, sig_handler);

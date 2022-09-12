@@ -6,14 +6,11 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 14:52:28 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/08/31 14:32:54 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:43:56 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
-#include <stdio.h>
-#include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
+
+#include "./Libft/libft.h"
 
 int	chartobin(char c, int pid_dest)
 {
@@ -39,8 +36,8 @@ int	main(int argc, char *argv[])
 	int	count;
 
 	count = 0;
-	pid_dest = atoi(argv[1]);
-	len = strlen(argv[2]);
+	pid_dest = ft_atoi(argv[1]);
+	len = ft_strlen(argv[2]);
 	if (argc)
 	{
 		while (count < len)
