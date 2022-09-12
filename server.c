@@ -6,7 +6,7 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:15:01 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/09/12 13:44:13 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:47:44 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sig_handler(int signum)
 {	
-	static int c;
-	static int bit;
-	
+	static int	c;
+	static int	bit;
+
 	if (signum == SIGUSR1)
 		c = c | (1 << bit);
 	bit++;
@@ -38,5 +38,4 @@ int	main(void)
 		pause();
 	}
 	return (0);
-	
 }

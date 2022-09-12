@@ -6,7 +6,7 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 14:52:28 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/09/12 13:43:56 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:46:31 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	chartobin(char c, int pid_dest)
 {
-	int bit;
+	int	bit;
 
 	bit = 0;
 	while (bit < 8)
