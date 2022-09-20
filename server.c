@@ -6,7 +6,7 @@
 /*   By: gsimonas <gsimonas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:15:01 by gsimonas          #+#    #+#             */
-/*   Updated: 2022/09/12 15:47:44 by gsimonas         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:18:04 by gsimonas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	sig_handler(int signum)
 
 int	main(void)
 {	
+	ft_printf("-----Server initialized-----");
 	ft_printf("\n%d\n", getpid());
 	while (1)
 	{
